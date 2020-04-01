@@ -1,0 +1,23 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+ 
+public class anuj581
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		Scanner sc = new Scanner(System.in);
+		String[] s = sc.next().split(":");
+		int h = Integer.parseInt(s[0]);
+		int m = Integer.parseInt(s[1]);
+		if(h>=12)
+		h-=12;
+		double f1=((h*60)+m)/2.0;
+		int f2=m*6;
+		if(f1==360)
+		System.out.println(0+ " " + f2);
+		else
+		System.out.println(f1 + " " + f2);
+
+	}
+}		
