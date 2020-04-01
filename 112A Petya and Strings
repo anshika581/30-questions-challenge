@@ -1,0 +1,25 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+ 
+public class MyClass {
+	public static void main(String[] args) {
+ 
+		Scanner sc = new Scanner(System.in);
+		String a = sc.next();
+		String b = sc.next();
+ 
+		String c = a.toLowerCase();
+		String d= b.toLowerCase();
+ 
+		if(c.compareTo(d) ==0)
+			System.out.println("0");
+		if(c.compareTo(d) > 0)
+			System.out.println("1");
+ 
+		if(c.compareTo(d) < 0)
+			System.out.println("-1");
+		
+	}
+}
