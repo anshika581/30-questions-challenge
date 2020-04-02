@@ -1,0 +1,50 @@
+import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.util.*;
+ 
+public class anuj581{
+    
+    public static int limit = 1000005;
+    public static boolean[] prime;
+ 
+    public static void main (String[] args) throws java.lang.Exception{
+        precompute();
+        Scanner scan = new Scanner(System.in);
+        int n=scan.nextInt();
+        for(int i=0;i<n;i++)    
+        	check(scan.nextLong());
+    }
+    
+    //O(N loglogN)
+    public static void precompute(){
+        prime = new boolean[limit];
+        Arrays.fill(prime, true);
+        prime[0] = prime[1] = false;
+        for(int i = 2; i < limit; i++){
+            if(prime[i]){
+                // i is prime
+                // make all it's multiples false
+                for(int j = 2*i; j < limit; j += i) prime[j] = false;
+            }
+        }
+    }
+    
+    // 3 divisors: 1 sqrt(N) N
+    // divs odd: perfect square
+    // divs even: rest of the numbers
+    public static void check(long N){
+        if(isPerfectSquare(N) && isPrime((int)Math.sqrt(N))) System.out.println("YES");
+        else System.out.println("NO");
+    }
+    
+    //check if sqrt is a whole number
+    public static boolean isPerfectSquare(long N){
+        long s = (long)Math.sqrt(N);
+        return (s*s == N);
+    }
+    
+    public static boolean isPrime(int N){
+        return prime[N];
+    }
+}
